@@ -15,6 +15,18 @@
 		297628382652AFDF002F31CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 297628362652AFDF002F31CD /* LaunchScreen.storyboard */; };
 		297628432652AFDF002F31CD /* MVVM_CTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297628422652AFDF002F31CD /* MVVM_CTests.swift */; };
 		2976284E2652AFE0002F31CD /* MVVM_CUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976284D2652AFE0002F31CD /* MVVM_CUITests.swift */; };
+		297628652652B3DB002F31CD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297628642652B3DB002F31CD /* AppCoordinator.swift */; };
+		2976286A2652B468002F31CD /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297628692652B467002F31CD /* Storyboards.swift */; };
+		297628702652D831002F31CD /* LoginStoryboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976286F2652D831002F31CD /* LoginStoryboards.swift */; };
+		297628752652D86A002F31CD /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 297628742652D86A002F31CD /* Login.storyboard */; };
+		297628822652D8CA002F31CD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297628812652D8CA002F31CD /* LoginVC.swift */; };
+		297628872652D8D7002F31CD /* OTPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297628862652D8D7002F31CD /* OTPVC.swift */; };
+		2976288C2652D8E7002F31CD /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976288B2652D8E7002F31CD /* RegisterVC.swift */; };
+		297628912652D9C6002F31CD /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297628902652D9C6002F31CD /* LoginCoordinator.swift */; };
+		297628962652E825002F31CD /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297628952652E825002F31CD /* LoginVM.swift */; };
+		2976289B2652E86B002F31CD /* OTPVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976289A2652E86B002F31CD /* OTPVM.swift */; };
+		297628A02652E881002F31CD /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976289F2652E881002F31CD /* RegisterVM.swift */; };
+		29826A7726862C7400A4D41E /* NSErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29826A7626862C7400A4D41E /* NSErrorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +61,18 @@
 		297628492652AFE0002F31CD /* MVVM-CUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MVVM-CUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2976284D2652AFE0002F31CD /* MVVM_CUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVM_CUITests.swift; sourceTree = "<group>"; };
 		2976284F2652AFE0002F31CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		297628642652B3DB002F31CD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		297628692652B467002F31CD /* Storyboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		2976286F2652D831002F31CD /* LoginStoryboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStoryboards.swift; sourceTree = "<group>"; };
+		297628742652D86A002F31CD /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		297628812652D8CA002F31CD /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		297628862652D8D7002F31CD /* OTPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVC.swift; sourceTree = "<group>"; };
+		2976288B2652D8E7002F31CD /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		297628902652D9C6002F31CD /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		297628952652E825002F31CD /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		2976289A2652E86B002F31CD /* OTPVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVM.swift; sourceTree = "<group>"; };
+		2976289F2652E881002F31CD /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
+		29826A7626862C7400A4D41E /* NSErrorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSErrorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +126,11 @@
 				2976282B2652AFDE002F31CD /* AppDelegate.swift */,
 				2976282D2652AFDE002F31CD /* SceneDelegate.swift */,
 				2976282F2652AFDE002F31CD /* ViewController.swift */,
+				297628642652B3DB002F31CD /* AppCoordinator.swift */,
 				297628312652AFDE002F31CD /* Main.storyboard */,
+				297628692652B467002F31CD /* Storyboards.swift */,
+				29826A7526862C7400A4D41E /* extensions */,
+				2976286E2652D813002F31CD /* LoginModule */,
 				297628342652AFDF002F31CD /* Assets.xcassets */,
 				297628362652AFDF002F31CD /* LaunchScreen.storyboard */,
 				297628392652AFDF002F31CD /* Info.plist */,
@@ -126,6 +154,30 @@
 				2976284F2652AFE0002F31CD /* Info.plist */,
 			);
 			path = "MVVM-CUITests";
+			sourceTree = "<group>";
+		};
+		2976286E2652D813002F31CD /* LoginModule */ = {
+			isa = PBXGroup;
+			children = (
+				2976286F2652D831002F31CD /* LoginStoryboards.swift */,
+				297628902652D9C6002F31CD /* LoginCoordinator.swift */,
+				297628812652D8CA002F31CD /* LoginVC.swift */,
+				297628952652E825002F31CD /* LoginVM.swift */,
+				297628862652D8D7002F31CD /* OTPVC.swift */,
+				2976289A2652E86B002F31CD /* OTPVM.swift */,
+				2976288B2652D8E7002F31CD /* RegisterVC.swift */,
+				2976289F2652E881002F31CD /* RegisterVM.swift */,
+				297628742652D86A002F31CD /* Login.storyboard */,
+			);
+			path = LoginModule;
+			sourceTree = "<group>";
+		};
+		29826A7526862C7400A4D41E /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				29826A7626862C7400A4D41E /* NSErrorExtension.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				297628752652D86A002F31CD /* Login.storyboard in Resources */,
 				297628382652AFDF002F31CD /* LaunchScreen.storyboard in Resources */,
 				297628352652AFDF002F31CD /* Assets.xcassets in Resources */,
 				297628332652AFDE002F31CD /* Main.storyboard in Resources */,
@@ -258,8 +311,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				297628652652B3DB002F31CD /* AppCoordinator.swift in Sources */,
+				297628962652E825002F31CD /* LoginVM.swift in Sources */,
+				2976286A2652B468002F31CD /* Storyboards.swift in Sources */,
+				297628912652D9C6002F31CD /* LoginCoordinator.swift in Sources */,
+				2976289B2652E86B002F31CD /* OTPVM.swift in Sources */,
+				297628872652D8D7002F31CD /* OTPVC.swift in Sources */,
+				297628822652D8CA002F31CD /* LoginVC.swift in Sources */,
+				297628A02652E881002F31CD /* RegisterVM.swift in Sources */,
 				297628302652AFDE002F31CD /* ViewController.swift in Sources */,
 				2976282C2652AFDE002F31CD /* AppDelegate.swift in Sources */,
+				2976288C2652D8E7002F31CD /* RegisterVC.swift in Sources */,
+				29826A7726862C7400A4D41E /* NSErrorExtension.swift in Sources */,
+				297628702652D831002F31CD /* LoginStoryboards.swift in Sources */,
 				2976282E2652AFDE002F31CD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
