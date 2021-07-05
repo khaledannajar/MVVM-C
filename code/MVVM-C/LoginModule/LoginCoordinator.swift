@@ -13,6 +13,7 @@ protocol HasUserModel {
 protocol LoginModuleParentCoordinator {
     func successfulLogin()
 }
+
 class LoginCoordinator {
     typealias Dependencies = HasUserModel
     let dependencies: Dependencies

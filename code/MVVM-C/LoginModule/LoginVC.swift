@@ -37,13 +37,15 @@ class LoginVC: UIViewController {
     }
     
 }
+//RX programming (RXswift, combine) Or
+//manually binding
 
 extension LoginVC: TypicalView {
     func updateState() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
-            switch self.loginVM.loginState{
+            switch self.loginVM.loginState {
             case .error(let message), .wrongUsername(let message), .wrongPassword(let message):
                 self.hideLoading()
                 self.showAlert(title: "Error", message: message)

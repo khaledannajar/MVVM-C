@@ -70,10 +70,38 @@ class MVVM_CTests: XCTestCase {
         wait(for: [expectation], timeout: 3.0)
     }
     
+    func testLoginVM() {
+        let mockClient = NetworkClientMock()
+        let userModel = UserBusinessModel(networkClient: mockClient)
+        let logInCoordinator = LoginCoordinatorMock()
+        let vm = LoginVM(userModel: userModel, loginView: LoginMockView(), loginViewCoordinator: logInCoordinator)
+        vm.register()
+        XCTAssertTrue(logInCoordinator.registerCalledNumber == 1)
+    }
+    
 }
+
 class NetworkClientMock: NetworkClient {
     func callBackend(completion: @escaping (String) -> Void) {
         completion("dummy")
     }
 }
 
+class LoginMockView: TypicalView {
+    func updateState() {
+        
+    }
+}
+class LoginCoordinatorMock: LoginViewCoordinator {
+    private(set) var registerCalledNumber: Int = 0
+    
+    func needToRegister() {
+        registerCalledNumber += 1
+    }
+    
+    func needOTP() {
+        
+    }
+    
+    
+}
