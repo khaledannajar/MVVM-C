@@ -8,6 +8,33 @@
 import UIKit
 
 class AppCoordinator {
+    
+    private var tabbarCoordinatgor: TabbarCoordinator?
+    private var loginCoordinator: LoginCoordinator?
+    
+    let window: UIWindow
+    init(window: UIWindow) {
+        self.window = window
+    }
+    
+    func start() {
+        print("app coordinator")
+        loginCoordinator = LoginCoordinator(window: window, dependencies: BeforeLoginDependencies(), parentCoordinator: self)
+        loginCoordinator!.start()
+        self.window.makeKeyAndVisible()
+    }
+    
+}
+
+extension AppCoordinator: LoginModuleParentCoordinator {
+    func successfulLogin() {
+        tabbarCoordinatgor = TabbarCoordinator(window: window)
+        tabbarCoordinatgor?.start()
+        loginCoordinator = nil // freeing the memory
+    }
+}
+
+class TabbarCoordinator {
     let window: UIWindow
     
     init(window: UIWindow) {
@@ -15,10 +42,6 @@ class AppCoordinator {
     }
     
     func start() {
-        print("app coordinator")
-        let controller = Controllers.getController(controllerKey: Controllers.ViewController2)
-        self.window.rootViewController = controller
-        self.window.makeKeyAndVisible()
+//        create tab bar controller, add tabs, and thier view models and set the tabbarcontroller to the rootViewController of the window
     }
-    
 }

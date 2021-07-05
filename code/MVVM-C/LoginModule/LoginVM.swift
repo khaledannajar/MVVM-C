@@ -6,8 +6,10 @@
 //
 
 import Foundation
-protocol TypicalView: AnyObject {
-    func updateState()
+
+protocol LoginViewCoordinator {
+    func needToRegister()
+    func needOTP()
 }
 
 class LoginVM {
@@ -21,16 +23,24 @@ class LoginVM {
             loginView.updateState() // we can use RX for binding
         }
     }
+    
     var loginResponse: LoginResponse?
     
     let userModel: UserModel
     let loginView: TypicalView
-    init(userModel: UserModel, loginView: TypicalView) {
+    let loginViewCoordinator: LoginViewCoordinator
+    init(userModel: UserModel, loginView: TypicalView, loginViewCoordinator: LoginViewCoordinator) {
         self.userModel = userModel
         self.loginView = loginView
+        self.loginViewCoordinator = loginViewCoordinator
     }
     
     func login(userName: String, password: String) {
+        if case LoginState.loading = loginState {
+            return
+        }
+        self.loginState = .loading
+        
         userModel.login(username: userName, password: password) { [weak self] (result) in
             guard let self = self else { return }
             switch result {
@@ -43,47 +53,21 @@ class LoginVM {
                 case .backendError(let message):
                     self.loginState = .error(message)
                 }
-                break
-            case .success(let response):
-                self.loginResponse = response
+            case .success:
                 self.loginState = .idle
+                self.loginViewCoordinator.needOTP()
             }
         }
     }
+    
+    func register() {
+        loginViewCoordinator.needToRegister()
+    }
+    
 }
 
 enum UserErrors: Error {
     case wrongPassword, wrongUsername, backendError(String)
-}
-
-class UserBusinessModel: UserModel {
-    
-    func isValidUsername(_ username: String) -> Bool {
-        if !username.isEmpty {
-            return true
-        }
-        return false
-    }
-    
-    func login(username: String, password: String, completion: @escaping (Result<LoginResponse, UserErrors>) -> Void) {
-        guard isValidUsername(username) else {
-            completion(.failure(.wrongUsername))
-            return
-        }
-        
-        guard isValidPassword(password) else {
-            completion(.failure(.wrongPassword))
-            return
-        }
-        completion(.success(LoginResponse(token: "log in success token")))
-    }
-    
-    func isValidPassword(_ password: String) -> Bool {
-        if !password.isEmpty {
-            return true
-        }
-        return false
-    }
 }
 
 struct LoginResponse {

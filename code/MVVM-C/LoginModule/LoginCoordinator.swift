@@ -10,24 +10,23 @@ import UIKit
 protocol HasUserModel {
     var userModel: UserModel { get }
 }
-
-protocol UserModel {
-    func isValidPassword(_ password: String) -> Bool
-    func isValidUsername(_ password: String) -> Bool
-    func login(username: String, password: String, completion: @escaping (Result<LoginResponse, UserErrors>)->Void ) // In the implementation we can save any session elated data
+protocol LoginModuleParentCoordinator {
+    func successfulLogin()
 }
 class LoginCoordinator {
     typealias Dependencies = HasUserModel
     let dependencies: Dependencies
     let window: UIWindow
-    init(window: UIWindow, dependencies: Dependencies) {
+    let parentCoordinator: LoginModuleParentCoordinator
+    init(window: UIWindow, dependencies: Dependencies, parentCoordinator: LoginModuleParentCoordinator) {
         self.window = window
         self.dependencies = dependencies
+        self.parentCoordinator = parentCoordinator
     }
     
     lazy var loginNav: UINavigationController = {
         let loginView = Controllers.getController(controllerKey: Controllers.login) as! LoginVC
-        let loginVM = LoginVM(userModel: dependencies.userModel, loginView: loginView)
+        let loginVM = LoginVM(userModel: dependencies.userModel, loginView: loginView, loginViewCoordinator: self)
         loginView.loginVM = loginVM
         let nav = UINavigationController(rootViewController: loginView)
         return nav
@@ -38,3 +37,34 @@ class LoginCoordinator {
     }
 }
 
+extension LoginCoordinator: LoginViewCoordinator {
+    func needToRegister() {
+        let registerView = Controllers.getController(controllerKey: Controllers.register) as! RegisterVC
+        let registerVM = RegisterVM(userModel: dependencies.userModel, coordinator: self)
+        registerView.registerVM = registerVM
+        loginNav.pushViewController(registerView, animated: true)
+    }
+    
+    func needOTP() {
+        let otpView = Controllers.getController(controllerKey: Controllers.otp) as! OTPVC
+        let otpVM = OTPVM(userModel: dependencies.userModel, coordinator: self)
+        otpView.otpVM = otpVM
+        loginNav.pushViewController(otpView, animated: true)
+    }
+    
+    
+}
+
+extension LoginCoordinator: RegisterViewCoordinator {
+    func neetToLogin() {
+        loginNav.popViewController(animated: true)
+    }
+}
+
+extension LoginCoordinator: OTPViewCoordinator {
+    func finishedSuccessfully() {
+        
+    }
+    
+    
+}

@@ -27,6 +27,11 @@
 		2976289B2652E86B002F31CD /* OTPVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976289A2652E86B002F31CD /* OTPVM.swift */; };
 		297628A02652E881002F31CD /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2976289F2652E881002F31CD /* RegisterVM.swift */; };
 		29826A7726862C7400A4D41E /* NSErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29826A7626862C7400A4D41E /* NSErrorExtension.swift */; };
+		79C8F3A42691D4BB00A7907B /* UITextField+textOrEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8F3A32691D4BA00A7907B /* UITextField+textOrEmpty.swift */; };
+		79C8F3A62691D54B00A7907B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8F3A52691D54B00A7907B /* UserModel.swift */; };
+		79C8F3A82691D59000A7907B /* TypicalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8F3A72691D59000A7907B /* TypicalView.swift */; };
+		79C8F3AA2692B34100A7907B /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8F3A92692B34100A7907B /* UIViewController.swift */; };
+		79C8F3AD2692B8E100A7907B /* BeforeLoginDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C8F3AC2692B8E100A7907B /* BeforeLoginDependencies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +78,11 @@
 		2976289A2652E86B002F31CD /* OTPVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVM.swift; sourceTree = "<group>"; };
 		2976289F2652E881002F31CD /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
 		29826A7626862C7400A4D41E /* NSErrorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSErrorExtension.swift; sourceTree = "<group>"; };
+		79C8F3A32691D4BA00A7907B /* UITextField+textOrEmpty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+textOrEmpty.swift"; sourceTree = "<group>"; };
+		79C8F3A52691D54B00A7907B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		79C8F3A72691D59000A7907B /* TypicalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypicalView.swift; sourceTree = "<group>"; };
+		79C8F3A92692B34100A7907B /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		79C8F3AC2692B8E100A7907B /* BeforeLoginDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeLoginDependencies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +138,9 @@
 				2976282F2652AFDE002F31CD /* ViewController.swift */,
 				297628642652B3DB002F31CD /* AppCoordinator.swift */,
 				297628312652AFDE002F31CD /* Main.storyboard */,
+				79C8F3AC2692B8E100A7907B /* BeforeLoginDependencies.swift */,
 				297628692652B467002F31CD /* Storyboards.swift */,
+				79C8F3A72691D59000A7907B /* TypicalView.swift */,
 				29826A7526862C7400A4D41E /* extensions */,
 				2976286E2652D813002F31CD /* LoginModule */,
 				297628342652AFDF002F31CD /* Assets.xcassets */,
@@ -161,6 +173,7 @@
 			children = (
 				2976286F2652D831002F31CD /* LoginStoryboards.swift */,
 				297628902652D9C6002F31CD /* LoginCoordinator.swift */,
+				79C8F3A52691D54B00A7907B /* UserModel.swift */,
 				297628812652D8CA002F31CD /* LoginVC.swift */,
 				297628952652E825002F31CD /* LoginVM.swift */,
 				297628862652D8D7002F31CD /* OTPVC.swift */,
@@ -176,6 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				29826A7626862C7400A4D41E /* NSErrorExtension.swift */,
+				79C8F3A32691D4BA00A7907B /* UITextField+textOrEmpty.swift */,
+				79C8F3A92692B34100A7907B /* UIViewController.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -313,6 +328,7 @@
 			files = (
 				297628652652B3DB002F31CD /* AppCoordinator.swift in Sources */,
 				297628962652E825002F31CD /* LoginVM.swift in Sources */,
+				79C8F3AA2692B34100A7907B /* UIViewController.swift in Sources */,
 				2976286A2652B468002F31CD /* Storyboards.swift in Sources */,
 				297628912652D9C6002F31CD /* LoginCoordinator.swift in Sources */,
 				2976289B2652E86B002F31CD /* OTPVM.swift in Sources */,
@@ -321,8 +337,12 @@
 				297628A02652E881002F31CD /* RegisterVM.swift in Sources */,
 				297628302652AFDE002F31CD /* ViewController.swift in Sources */,
 				2976282C2652AFDE002F31CD /* AppDelegate.swift in Sources */,
+				79C8F3A62691D54B00A7907B /* UserModel.swift in Sources */,
 				2976288C2652D8E7002F31CD /* RegisterVC.swift in Sources */,
 				29826A7726862C7400A4D41E /* NSErrorExtension.swift in Sources */,
+				79C8F3AD2692B8E100A7907B /* BeforeLoginDependencies.swift in Sources */,
+				79C8F3A82691D59000A7907B /* TypicalView.swift in Sources */,
+				79C8F3A42691D4BB00A7907B /* UITextField+textOrEmpty.swift in Sources */,
 				297628702652D831002F31CD /* LoginStoryboards.swift in Sources */,
 				2976282E2652AFDE002F31CD /* SceneDelegate.swift in Sources */,
 			);

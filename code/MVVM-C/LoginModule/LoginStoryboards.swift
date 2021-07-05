@@ -13,8 +13,8 @@ extension Storyboards {
 }
 
 extension Controllers {
-    static let login: ControllerKey = (Storyboards.main, "LoginVC")
-    static let otp: ControllerKey = (Storyboards.main, "OTPVC")
-    static let register: ControllerKey = (Storyboards.main, "RegisterVC")
+    static let login: ControllerKey = (Storyboards.login, "LoginVC")
+    static let otp: ControllerKey = (Storyboards.login, "OTPVC")
+    static let register: ControllerKey = (Storyboards.login, "RegisterVC")
     
 }
