@@ -18,8 +18,12 @@ protocol UserModel: HasNetworkClient {
 class UserBusinessModel: UserModel {
  
     
+    init(networkClient: NetworkClient = NetworkManager()) {
+        self.networkClient = networkClient
+    }
     
-    var networkClient: NetworkClient = NetworkManager()
+    let networkClient: NetworkClient
+    
     private var loginResponse = LoginResponse(token: "log in success token")
     
     func isValidUsername(_ username: String) -> Bool {

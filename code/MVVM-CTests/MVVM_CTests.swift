@@ -10,24 +10,70 @@ import XCTest
 
 class MVVM_CTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+  
+    func testIsValidPassword() throws {
+        
+     let userModel = UserBusinessModel()
+        XCTAssertFalse(userModel.isValidPassword(""))
+        XCTAssertTrue(userModel.isValidPassword("1"))
+        XCTAssertTrue(userModel.isValidPassword("a"))
+        XCTAssertTrue(userModel.isValidPassword("@comLex^3Paawrodsw"))
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testIsPassword() throws {
+        
+     let userModel = UserBusinessModel()
+        XCTAssertFalse(userModel.isValidUsername(""))
+        XCTAssertTrue(userModel.isValidUsername("1"))
+        XCTAssertTrue(userModel.isValidUsername("a"))
+        XCTAssertTrue(userModel.isValidUsername("@comLex^3Paawrodsw"))
+        
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func test_wrong_userName_whatever_password() throws {
+        let mockClient = NetworkClientMock()
+        let userModel = UserBusinessModel(networkClient: mockClient)
+        let expectation = XCTestExpectation()
+        userModel.login(username: "", password: "password") { result in
+            switch result {
+            case .failure(let error):
+                switch error {
+                case .wrongUsername:
+                    expectation.fulfill()
+                default:
+                    XCTFail("This should return wrong user name error")
+                }
+            case .success:
+                XCTFail("This should fail and return wrong user name error.")
+            }
         }
+        wait(for: [expectation], timeout: 3.0)
     }
-
+    
+    func test_whatever_userName_wrong_password() throws {
+        let mockClient = NetworkClientMock()
+        let userModel = UserBusinessModel(networkClient: mockClient)
+        let expectation = XCTestExpectation()
+        userModel.login(username: "user name", password: "") { result in
+            switch result {
+            case .failure(let error):
+                switch error {
+                case .wrongPassword:
+                    expectation.fulfill()
+                default:
+                    XCTFail("This should return wrong user name error")
+                }
+            case .success:
+                XCTFail("This should fail and return wrong user name error.")
+            }
+        }
+        wait(for: [expectation], timeout: 3.0)
+    }
+    
 }
+class NetworkClientMock: NetworkClient {
+    func callBackend(completion: @escaping (String) -> Void) {
+        completion("dummy")
+    }
+}
+
