@@ -20,7 +20,7 @@ class MVVM_CTests: XCTestCase {
         XCTAssertTrue(userModel.isValidPassword("@comLex^3Paawrodsw"))
     }
 
-    func testIsPassword() throws {
+    func testIsValidUsername() throws {
         
      let userModel = UserBusinessModel()
         XCTAssertFalse(userModel.isValidUsername(""))
